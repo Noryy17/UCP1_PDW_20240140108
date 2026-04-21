@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Pemesanan Makanan</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: inline-block; width: 150px; margin-bottom: 5px; }
+        input[type="text"], input[type="date"] { padding: 8px; width: 250px; }
+        input[type="radio"] { margin-right: 10px; }
+        button { padding: 10px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Form Pemesanan Makanan</h2>
+
+    <form id="orderForm">
+        <div class="form-group">
+            <label for="nama">Nama Pelanggan:</label>
+            <input type="text" id="nama" name="nama" required>
+        </div>
+        <div class="form-group">
+            <label for="telepon">Nomor Telepon:</label>
+            <input type="text" id="telepon" name="telepon" required>
+        </div>
+        <div class="form-group">
+            <label for="alamat">Alamat Pengiriman:</label>
+            <input type="text" id="alamat" name="alamat" required>
+        </div>
+        <div class="form-group">
+            <label>Jenis Produk:</label>
+            <input type="radio" id="makanan" name="jenis" value="Makanan" required>
+            <label for="makanan" style="width: auto;">Makanan</label>
+            <input type="radio" id="minuman" name="jenis" value="Minuman" required>
+            <label for="minuman" style="width: auto;">Minuman</label>
+        </div>
+        <div class="form-group">
+            <label for="menu">Nama Menu:</label>
+            <input type="text" id="menu" name="menu" required>
+        </div>
+        <div class="form-group">
+            <label for="jumlah">Jumlah Pesanan:</label>
+            <input type="text" id="jumlah" name="jumlah" required>
+        </div>
+        <div class="form-group">
+            <label for="tanggal">Tanggal Pemesanan:</label>
+            <input type="date" id="tanggal" name="tanggal" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('orderForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nama = document.getElementById('nama').value;
+            const menu = document.getElementById('menu').value;
+            const jumlah = document.getElementById('jumlah').value;
+            alert("Pesanan berhasil dikirim!\n\nNama: " + nama + "\nMenu: " + menu + "\nJumlah: " + jumlah);
+            document.getElementById('orderForm').reset();
+        });
+    </script>
+</body>
+</html>
